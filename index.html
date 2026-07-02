@@ -15,6 +15,8 @@
   <meta name="keywords" content="coconut shell charcoal, coconut briquettes, shisha charcoal, BBQ charcoal, copra, coconut meat, Indonesia export">
   <meta name="author" content="PT Sakti Coco Utama">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; line-height: 1.6; scroll-behavior: smooth; }
     h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; }
@@ -51,10 +53,21 @@
       justify-content: center; 
       align-items: center; 
       text-align: center; 
-      background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets/hero.jpg') center/cover no-repeat; 
-      color: #fff; 
-      margin-bottom: 50px; /* menambah jarak dengan section berikut */
+      background: position: relative; 
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets/hero.jpg') center/cover no-repeat; 
+  color: #fff; 
+  margin-bottom: 50px;
+}
+
     }
+
+
     .hero-content { max-width: 800px; z-index: 2; opacity: 0; transform: translateY(30px); animation: fadeInUp 1.5s ease forwards; }
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
     .hero h1 { font-size: 2.5rem; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; }
@@ -95,6 +108,54 @@
     .service i { font-size: 2.5rem; color: #ff6600; margin-bottom: 15px; }
     .service h3 { margin-bottom: 10px; font-size: 1.3rem; color: #333; }
     .service p { color: #555; font-size: 0.95rem; }
+
+
+/* Global Business Networking */
+
+.business-journey{
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+  margin-bottom:30px auto;
+  max-width:500px;
+
+}
+
+.journey-single{
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.journey-single img{
+  width:100%;
+  max-width:700px;
+  border-radius:15px;
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
+  margin:30px auto;
+  display:block;
+}
+
+.journey-single h3{
+  color:#ff6600;
+  margin-bottom:15px;
+}
+
+.journey-single p{
+  line-height:1.8;
+  color:#555;
+}
+
+.location-badge{
+  display:inline-block;
+  background:#ff6600;
+  color:#fff;
+  padding:8px 18px;
+  border-radius:30px;
+  margin-bottom:20px;
+  font-size:.9rem;
+}
 
    /* FAQ */
     .faq-container { max-width: 800px; margin: auto; }
@@ -239,6 +300,35 @@
       <div class="service"><i class="fas fa-recycle"></i><h3>Ramah Lingkungan</h3><p>Produk kami 100% alami dan mendukung prinsip keberlanjutan.</p></div>
     </div>
   </section>
+
+<!-- Global Business Networking -->
+<section id="networking" class="business-journey">
+
+  <div class="journey-single">
+
+    <h2>🌍 Global Business Networking</h2>
+
+    <img src="assets/business-meeting.jpg.webp" alt="International Business Meeting">
+
+    <div class="location-badge">
+      📍 Medan, Indonesia
+      📍 Hebei, china
+    </div>
+
+    <h3>Building International Business Relationships</h3>
+
+    <p>
+      At <strong>PT Sakti Coco Utama</strong>, we actively engage in meetings with prospective international buyers to introduce our coconut products, exchange market insights, and explore future business opportunities.
+    </p>
+
+    <p>
+      We believe that every successful partnership begins with trust, professionalism, and open communication. Every meeting is an important step toward building long-term business relationships worldwide.
+    </p>
+
+  </div>
+
+</section>
+
 
   <!-- FAQ -->
   <section id="faq" class="faq">
