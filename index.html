@@ -62,7 +62,7 @@
   text-align: center; 
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets/hero.jpg') center/cover no-repeat; 
   color: #fff; 
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
     }
@@ -78,15 +78,15 @@
     .cta-button:hover { background: #e65c00; }
 
     /* Sections */
-    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-    .about, .products, .services, .faq, .legality, .contact { background: #fff; border-radius: 20px; padding: 50px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 50px; }
+    section { padding: 60px 20px; max-width: 1200px; margin: auto;}
+    .about, .products, .services, .faq, .legality, .contact { background: #fff; border-radius: 0px; padding: 50px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 0px; }
 
     /* About */
 
 /* Tentang Kami dengan background yang jelas */
 
  
-.about { position: relative; background: url('assets/about-bg.jpg') center/cover no-repeat; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; border-radius: 20px; overflow: hidden; }
+.about { position: relative; background: url('assets/about-bg.jpg') center/cover no-repeat; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; border-radius: 0px; overflow: hidden; }
     .about-overlay { background: rgba(0,0,0,0.5); padding: 50px 30px; border-radius: 15px; max-width: 800px; }
 
     /* Responsive */
@@ -94,6 +94,16 @@
       .about-grid { grid-template-columns: 1fr; }
       .about-photos { flex-direction: column; align-items: center; }
     }
+
+
+    /* Background Products */
+.products{
+    background:#123524;
+}
+
+.products h2{
+    color:#ffffff;
+}
 
     /* Products */
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -109,24 +119,53 @@
     .service h3 { margin-bottom: 10px; font-size: 1.3rem; color: #333; }
     .service p { color: #555; font-size: 0.95rem; }
 
+/* Background Services */
+.services{
+    background:#123524;
+    color:#ffffff;
+}
+
+.services h2{
+    color:#ffffff;
+}
+
+
+
 
 /* Global Business Networking */
 
 .business-journey{
-  background:#fff;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 4px 15px rgba(0,0,0,.1);
-  margin-bottom:30px auto;
-  max-width:500px;
+    background:#123524;
+    border-radius:0;
+    padding:60px 0;
+    margin:0;
+    box-shadow:none;
 
+    width:100vw;
+    max-width:none;
+
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+
+    box-sizing:border-box;
+}
+
+.business-journey{
+    background:#123524;
 }
 
 .journey-single{
-  text-align:center;
-  max-width:900px;
-  margin:auto;
+    max-width:1200px;
+    width:100%;
+    margin:0 auto;
+    padding:0 20px;
+    text-align:center;
+    box-sizing:border-box;
 }
+
 
 .journey-single img{
   width:100%;
@@ -147,6 +186,12 @@
   color:#555;
 }
 
+.journey-single h2,
+.journey-single h3,
+.journey-single p{
+    color:#ffffff;
+}
+
 .location-badge{
   display:inline-block;
   background:#ff6600;
@@ -165,6 +210,27 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.3s; padding: 0 15px; }
     .faq-item.active .faq-answer { max-height: 500px; padding: 15px; }
 
+/* Background FAQ */
+.faq{
+    background:#123524;
+}
+
+.faq h2{
+    color:#ffffff;
+}
+
+.faq-answer{
+    color:#ffffff;
+}
+
+.faq-answer p{
+    color:#ffffff;
+}
+
+.faq-answer ul,
+.faq-answer li{
+    color:#ffffff;
+}
     /* Legality */
   .legality-grid {
   display: grid;
@@ -188,6 +254,15 @@
   }
 }
 
+/* Background Company Legality */
+.legality{
+    background:#123524;
+}
+
+.legality h2{
+    color:#ffffff;
+}
+
 
  /* Contact */
     .contact-info { text-align: center; margin-bottom: 20px; }
@@ -201,6 +276,18 @@
     .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
     .contact-form button { background: #ff6600; color: #fff; padding: 12px 25px; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: background 0.3s; }
     .contact-form button:hover { background: #e65c00; }
+   
+    /* Background Contact */
+.contact{
+    background:#123524;
+}
+
+.contact h2,
+.contact h3,
+.contact p,
+.contact label{
+    color:#ffffff;
+}
 
     /* Footer */
     footer { background: #333; color: #fff; text-align: center; padding: 20px; }
