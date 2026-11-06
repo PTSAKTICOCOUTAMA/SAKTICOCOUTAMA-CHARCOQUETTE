@@ -33,7 +33,52 @@
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; line-height: 1.6; scroll-behavior: smooth; }
     h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; }
 
-/* About dengan background */
+/* Products Background Video */
+
+.products {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: none;
+}
+
+.products-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+
+
+    /* About Background Video */
+
+.about {
+    position: relative;
+    overflow: hidden;
+    background: none;
+    isolation: isolate;
+}
+
+.about-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.about-overlay {
+    position: relative;
+    z-index: 1;
+}
+
+
+    /* About dengan background */
 .about {
   position: relative;
   background: url('assets/about-bg.jpg') center/cover no-repeat;
@@ -57,41 +102,160 @@
 
 
     /* Hero */
-    .hero { 
-      position: relative; 
-      min-height: 100vh; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      text-align: center; 
-      background: position: relative; 
-  min-height: 100vh; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
-  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets/hero.jpg') center/cover no-repeat; 
-  color: #fff; 
-  margin-bottom: 0px;
+.hero {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('assets/hero.jpg') center/cover no-repeat;
+    color: #fff;
+    margin: 0;
+    box-sizing: border-box;
 }
 
+
+
+    .hero-content {
+    max-width: 800px;
+    z-index: 2;
+    opacity: 1;
+}
+  
+    /* Cinematic Logo & Company Name */
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Luxury Logo Reveal */
+
+.hero h1 img {
+    width: 120px;
+    height: auto;
+    opacity: 0;
+    transform: translateX(-250vw) rotate(-45deg);
+    transform-origin: right center;
+    filter: blur(4px);
+    will-change: transform, opacity, filter;
+
+    animation:
+        logoSlideIn 2s linear 0.4s forwards,
+        logoImpact 0.7s ease-out 2.4s forwards;
+}
+
+
+/* Tahap 1: Logo masuk dari luar layar kiri */
+@keyframes logoSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-110vw) rotate(-45deg);
+        filter: blur(4px);
     }
 
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+        filter: blur(0);
+    }
+}
 
-    .hero-content { max-width: 800px; z-index: 2; opacity: 0; transform: translateY(30px); animation: fadeInUp 1.5s ease forwards; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; }
-    .hero h1 img { width: 60px; height: auto; }
-    .hero h1 span { color: #32CD32; } /* hijau cerah */
+/* Tahap 2: Logo menabrak dan berayun */
+@keyframes logoImpact {
+
+    0% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+        filter: blur(0);
+    }
+   
+
+    8% {
+        transform: translateX(20px) rotate(8deg);
+    }
+
+    24% {
+        transform: translateX(-8px) rotate(-18deg);
+    }
+
+    40% {
+        transform: translateX(4px) rotate(12deg);
+    }
+
+    56% {
+        transform: translateX(-2px) rotate(-8deg);
+    }
+
+    72% {
+        transform: translateX(1px) rotate(4deg);
+    }
+
+    88% {
+        transform: translateX(0) rotate(-1.5deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+
+/* Luxury Company Name Reveal */
+
+.hero h1 span {
+    color: #32CD32;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-35px);
+    filter: blur(8px);
+    animation: luxuryTitleReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+@keyframes luxuryTitleReveal {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transform: translateX(-35px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+    
+
+
+
+    
+    /* hijau cerah */
     .cta-buttons { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
     .cta-button { background: #ff6600; color: #fff; padding: 10px 18px; border-radius: 25px; text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
     .cta-button:hover { background: #e65c00; }
 
-    /* Sections */
-    section { padding: 60px 20px; max-width: 1200px; margin: auto;}
-    .about, .products, .services, .faq, .legality, .contact { background: #fff; border-radius: 0px; padding: 50px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 0px; }
+    /* Sections - Full Width */
+section {
+    padding: 60px 20px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    box-sizing: border-box;
+}
 
     /* About */
 
@@ -111,17 +275,141 @@
     /* Background Products */
 .products{
     background:#123524;
+    
 }
 
 .products h2{
     color:#ffffff;
 }
 
-    /* Products */
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .product { background: #fff; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .product:hover { transform: translateY(-8px); }
-    .product img { max-width: 100%; height: auto; border-radius: 10px; }
+
+     
+
+/* Product Carousel - Layout Fix */
+
+.product-carousel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.product-grid {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: 20px;
+    overflow-x: auto;
+scrollbar-width: none;
+    align-items: stretch;
+}
+
+.product-grid .product {
+    flex: 0 0 calc((100% - 60px) / 4);
+    width: calc((100% - 60px) / 4);
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.product-grid .product img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-grid .product h3 {
+    font-size: 1rem;
+    margin: 15px 0 10px;
+    overflow-wrap: break-word;
+}
+
+.product-grid .product p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+.product-arrow {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #ff6600;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.product-arrow:hover {
+    background: #e65c00;
+}
+
+
+/* Compact Product Cards */
+
+.product-grid .product {
+    height: 300px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.product-grid .product img {
+    width: 100%;
+    height: 210px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.product-grid .product h3 {
+    margin: 5px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .product-grid .product {
+        height: 270px;
+    }
+
+    .product-grid .product img {
+        height: 185px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .product-grid .product {
+        flex-basis: calc((100% - 20px) / 2);
+        width: calc((100% - 20px) / 2);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid .product {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+
+
+
+
+      
 
     /* Services */
     .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
@@ -131,74 +419,199 @@
     .service h3 { margin-bottom: 10px; font-size: 1.3rem; color: #333; }
     .service p { color: #555; font-size: 0.95rem; }
 
+
 /* Background Services */
-.services{
-    background:#123524;
-    color:#ffffff;
+.services {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #123524;
+    color: #ffffff;
+    padding: 80px 8%;
 }
 
-.services h2{
-    color:#ffffff;
+.services-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.services-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+}
+
+.services-content {
+    position: relative;
+    z-index: 1;
+}
+
+.services h2 {
+    color: #ffffff;
+    text-align: center;
 }
 
 
 
 
-/* Global Business Networking */
-.business-journey{
-    background:#123524;
-    border-radius:0;
-    padding:50px 30px;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
-    margin-bottom:0;
-}
 
-.business-journey{
-    background:#123524;
-}
 
-.journey-single{
-    text-align:center;
-    width:100%;
-    max-width:none;
-    margin:auto;
+/* Business Journal */
+
+.business-journey {
+    background: #123524;
+    padding: 60px 30px;
+    overflow: hidden;
+    color: #ffffff;
+    position: relative;
+isolation: isolate;
+background: #123524;
 }
 
 
-.journey-single img{
-  width:100%;
-  max-width:700px;
-  border-radius:15px;
-  box-shadow:0 6px 20px rgba(0,0,0,.15);
-  margin:30px auto;
-  display:block;
+/* Business Journal Video Background */
+.journal-background-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 
-.journey-single h3{
-  color:#ff6600;
-  margin-bottom:15px;
+.journal-background-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.60);
+    z-index: -1;
 }
 
-.journey-single p{
-  line-height:1.8;
-  color:#555;
+.journal-content {
+    position: relative;
+    z-index: 1;
 }
 
-.journey-single h2,
-.journey-single h3,
-.journey-single p{
-    color:#ffffff;
+
+.journal-header {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-.location-badge{
-  display:inline-block;
-  background:#ff6600;
-  color:#fff;
-  padding:8px 18px;
-  border-radius:30px;
-  margin-bottom:20px;
-  font-size:.9rem;
+.journal-header h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
 }
+
+.journal-header p {
+    color: #dddddd;
+    margin: 0;
+}
+
+.journal-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.journal-track {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 10px 3px 25px;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6600 #234b38;
+}
+
+.journal-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.journal-track::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 10px;
+}
+
+.journal-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: #ffffff;
+    color: #333333;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
+}
+
+.journal-card img,
+.journal-card video {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #222222;
+}
+
+.journal-card-content {
+    padding: 16px;
+}
+
+.journal-card-content h3 {
+    color: #123524;
+    margin: 0 0 7px;
+    font-size: 1.1rem;
+}
+
+.journal-card-content p {
+    color: #666666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.journal-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.journal-controls button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #ff6600;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.journal-controls button:hover {
+    background: #e65c00;
+    transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+    .business-journey {
+        padding: 45px 15px;
+    }
+
+    .journal-card {
+        flex-basis: 260px;
+    }
+
+    .journal-card img,
+    .journal-card video {
+        height: 185px;
+    }
+}
+
 
    /* FAQ */
     .faq-container { max-width: 800px; margin: auto; }
@@ -209,8 +622,15 @@
     .faq-item.active .faq-answer { max-height: 500px; padding: 15px; }
 
 /* Background FAQ */
-.faq{
-    background:#123524;
+.faq {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.10)),
+        url('assets/faq-background.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 .faq h2{
@@ -230,31 +650,49 @@
     color:#ffffff;
 }
     /* Legality */
-  .legality-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+
+
+  /* Company Legality - Image Layout */
+.legality-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 750px;
+    margin: 0 auto;
+    align-items: center;
 }
 
 .legality img {
-  width: 100%;
-  max-width: 200px; /* ukuran maksimal foto */
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin: 0 auto; /* pusatkan gambar di kolom */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 0 auto;
 }
 
-/* Khusus layar kecil */
+/* Company Legality - Mobile Layout */
 @media (max-width: 480px) {
-  .legality-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
+    .legality-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
 }
+
 
 /* Background Company Legality */
-.legality{
-    background:#123524;
+.legality {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),
+        url('assets/company-legality-background.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    padding-top: 100px;
+padding-bottom: 100px;
 }
 
 .legality h2{
@@ -300,11 +738,61 @@
       .hero h1 img { width: 50px; }
       .cta-buttons { flex-direction: column; gap: 15px; }
       .about, .products, .services, .faq, .legality, .contact { padding: 30px 15px; }
-      .service-grid, .product-grid, .legality-grid { grid-template-columns: 1fr; }
+      .service-grid, .product-grid {
+    grid-template-columns: 1fr;
+}
       .product img { max-height: 200px; object-fit: cover; }
       .contact-info p { font-size: 0.9rem; }
       .map { height: 250px; }
     }
+
+    
+/* Services - Mobile Layout */
+@media (max-width: 768px) {
+    .services {
+        padding: 45px 20px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .service {
+        padding: 18px 12px;
+        border-radius: 12px;
+    }
+
+    .service i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .service h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .service p {
+        font-size: 0.82rem;
+        line-height: 1.5;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 380px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -329,6 +817,11 @@
 
   <!-- Tentang Kami -->
   <section id="about" class="about">
+
+    <video class="about-video" autoplay muted loop playsinline>
+        <source src="assets/about-video.mp4" type="video/mp4">
+    </video>
+
     <div class="about-overlay">
       <h2>Tentang Kami</h2>
       <p>
@@ -345,74 +838,267 @@
 
   <!-- Produk -->
   <section id="products" class="products">
-    <h2>Produk Kami</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="assets/charcoal.jpg" alt="Coconut Shell Charcoal" loading="lazy">
-        <h3>Coconut Shell Charcoal</h3>
- <p> sebagai bahan bakar, penjernih air dan udara, peningkat kesuburan tanah, bahan baku industri dan energi, serta kegunaannya dalam produk kecantikan dan kesehatan seperti menyerap toksin dari tubuh, mengatasi diare, dan menghilangkan bau badan.  </p>        
-</div>
-      <div class="product">
-        <img src="assets/briquettes.jpg" alt="Premium Briquettes" loading="lazy">
-        <h3>Premium Briquettes</h3>
- <p> waktu pembakaran yang lebih lama, nilai kalor yang tinggi, pembakaran yang lebih stabil dan bersih, serta bentuk yang seragam sehingga lebih mudah disimpan dan didistribusikan. </p>      
-</div>
-      <div class="product">
-        <img src="assets/copra-edible.jpg" alt="Copra Edible" loading="lazy">
-        <h3>Copra Edible</h3>
-        <p>Bahan baku premium untuk diolah menjadi berbagai bahan makanan, seperti margarine, mentega putih (shortening), minyak goreng kelapa, maupun industri lainnya.</p>
-      </div>
-      <div class="product">
-        <img src="assets/kopra-asap.jpg" alt="Kopra Asap" loading="lazy">
-        <h3>Kopra Asap</h3>
-        <p>Dihasilkan dari proses pengasapan tradisional yang menjaga aroma khas dan kualitas tinggi, cocok sebagai bahan baku minyak kelapa maupun industri lainnya.</p>
-      </div>
-      <div class="product">
-        <img src="assets/coconut-meat.jpg" alt="Daging Kelapa Putih" loading="lazy">
-        <h3>Daging Kelapa Kupas/Putih</h3>
-        <p>Daging kelapa segar berkualitas tinggi, siap digunakan sebagai bahan baku makanan, minuman, maupun industri olahan kelapa.</p>
-      </div>
-    </div>
-  </section>
+     
+    <video class="products-video" autoplay muted loop playsinline>
+    <source src="assets/products-video.mp4" type="video/mp4">
+</video>
 
-  <!-- Services -->
-  <section id="services" class="services">
-    <h2>Layanan Kami</h2>
-    <div class="service-grid">
-      <div class="service"><i class="fas fa-ship"></i><h3>Ekspor Global</h3><p>Kami melayani pengiriman ke berbagai negara dengan standar internasional.</p></div>
-      <div class="service"><i class="fas fa-industry"></i><h3>Produksi Berkualitas</h3><p>Proses produksi modern dengan kontrol kualitas ketat untuk menjaga mutu produk.</p></div>
-      <div class="service"><i class="fas fa-handshake"></i><h3>Kemitraan Bisnis</h3><p>Membangun hubungan jangka panjang dengan mitra untuk keberlanjutan usaha.</p></div>
-      <div class="service"><i class="fas fa-recycle"></i><h3>Ramah Lingkungan</h3><p>Produk kami 100% alami dan mendukung prinsip keberlanjutan.</p></div>
-    </div>
-  </section>
 
-<!-- Global Business Networking -->
-<section id="networking" class="business-journey">
 
-  <div class="journey-single">
-
-    <h2>🌍 Global Business Networking</h2>
-
-    <img src="assets/business-meeting.jpg.webp" alt="International Business Meeting">
-
-    <div class="location-badge">
-      📍 Medan, Indonesia
     
+<h2>Produk Kami</h2>
+
+<div class="product-carousel">
+
+    <button class="product-arrow prev"
+            type="button"
+            onclick="moveProduct(-1)">
+        &#10094;
+    </button>
+
+    <div class="product-grid" id="productTrack">
+
+        <div class="product">
+            <img src="assets/charcoal.jpg" alt="Coconut Shell Charcoal" loading="lazy">
+            <h3>Coconut Shell Charcoal</h3>
+           </div>
+
+        <div class="product">
+            <img src="assets/briquettes.jpg" alt="Premium Briquettes" loading="lazy">
+            <h3>Premium Briquettes</h3>
+            </div>
+
+        <div class="product">
+            <img src="assets/copra-edible.jpg" alt="Copra Edible" loading="lazy">
+            <h3>Copra Edible</h3>
+            </div>
+
+        <div class="product">
+            <img src="assets/kopra-asap.jpg" alt="Kopra Asap" loading="lazy">
+            <h3>Kopra Asap</h3>
+           </div>
+
+        <div class="product">
+            <img src="assets/coconut-meat.jpg" alt="Daging Kelapa Putih" loading="lazy">
+            <h3>Daging Kelapa Kupas/Putih</h3>
+           </div>
+
     </div>
 
-    <h3>Building International Business Relationships</h3>
+    <button class="product-arrow next"
+            type="button"
+            onclick="moveProduct(1)">
+        &#10095;
+    </button>
 
-    <p>
-      At <strong>PT Sakti Coco Utama</strong>, we actively engage in meetings with prospective international buyers to introduce our coconut products, exchange market insights, and explore future business opportunities.
-    </p>
+</div>
 
-    <p>
-      We believe that every successful partnership begins with trust, professionalism, and open communication. Every meeting is an important step toward building long-term business relationships worldwide.
-    </p>
+  </section>
 
-  </div>
+ 
+<!-- Services -->
+<section id="services" class="services">
+
+    <video class="services-video" autoplay muted loop playsinline>
+        <source src="assets/services-background.mp4" type="video/mp4">
+    </video>
+
+    <div class="services-overlay"></div>
+
+    <div class="services-content">
+        <h2>Layanan Kami</h2>
+
+        <div class="service-grid">
+            <div class="service">
+                <i class="fas fa-ship"></i>
+                <h3>Ekspor Global</h3>
+                <p>Kami melayani pengiriman ke berbagai negara dengan standar internasional.</p>
+            </div>
+
+            <div class="service">
+                <i class="fas fa-industry"></i>
+                <h3>Produksi Berkualitas</h3>
+                <p>Proses produksi modern dengan kontrol kualitas ketat untuk menjaga mutu produk.</p>
+            </div>
+
+            <div class="service">
+                <i class="fas fa-handshake"></i>
+                <h3>Kemitraan Bisnis</h3>
+                <p>Membangun hubungan jangka panjang dengan mitra untuk keberlanjutan usaha.</p>
+            </div>
+
+            <div class="service">
+                <i class="fas fa-recycle"></i>
+                <h3>Ramah Lingkungan</h3>
+                <p>Produk kami 100% alami dan mendukung prinsip keberlanjutan.</p>
+            </div>
+        </div>
+    </div>
 
 </section>
+
+
+
+<!-- Business Journal -->
+<section id="networking" class="business-journey">
+
+    <video class="journal-background-video" autoplay muted loop playsinline>
+    <source src="assets/business-journal-background.mp4" type="video/mp4">
+</video>
+
+<div class="journal-background-overlay"></div>
+
+<div class="journal-content">
+
+    <div class="journal-header">
+        <h2>Business Journal</h2>
+        <p>Our Activities, Connections & Journey</p>
+    </div>
+
+    <div class="journal-wrapper">
+
+        <div class="journal-track" id="journalTrack">
+
+            <!-- Foto 1 -->
+            <div class="journal-card">
+                <img src="assets/business-meeting.jpg.webp"
+                     alt="Business Meeting">
+                <div class="journal-card-content">
+                    <h3>Business Meeting</h3>
+                    <p>Building international business relationships.</p>
+                </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="journal-card">
+                <img src="assets/journal-2.jpg"
+                     alt="Company Activities">
+                <div class="journal-card-content">
+                    <h3>Company Activities</h3>
+                    <p>Documenting our business journey.</p>
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="journal-card">
+                <img src="assets/journal-3.jpg"
+                     alt="Production Activities">
+                <div class="journal-card-content">
+                    <h3>Production Activities</h3>
+                    <p>Behind the coconut shell charcoal production process.</p>
+                </div>
+            </div>
+
+<!-- Foto 4 - Charcoal Production -->
+<div class="journal-card">
+    <img src="assets/journal-5.jpg"
+         alt="Coconut Shell Charcoal Production">
+    <div class="journal-card-content">
+        <h3>dari limbah menjadi sesuatu yang bernilai</h3>
+        <p>Dengan pengolahan yang tepat, limbah bisa menjadi bernilai.</p>
+    </div>
+</div>
+
+
+            <!-- Foto 5 - Charcoal Unloading -->
+<div class="journal-card">
+    <img src="assets/journal-4.jpg"
+         alt="Coconut Shell Charcoal Unloading">
+    <div class="journal-card-content">
+        <h3>our stock of whole coconuts</h3>
+        <p>We plan to offer coconuts to coconut-derived products.</p>
+    </div>
+</div>
+
+
+<!-- Video 5 - Charcoal Handling -->
+<div class="journal-card">
+    <video controls preload="metadata">
+        <source src="assets/journal-video-5.mp4" type="video/mp4">
+    </video>
+    <div class="journal-card-content">
+        <h3>from farmers to every corner of the world</h3>
+        <p>We go directly into the field to observe and evaluate both the products and the farmers.</p>
+    </div>
+</div>
+
+            <!-- Video 1 -->
+            <div class="journal-card">
+                <video controls preload="metadata">
+                    <source src="assets/journal-video-1.mp4" type="video/mp4">
+                </video>
+                <div class="journal-card-content">
+                    <h3>Business Documentation</h3>
+                    <p>Moments from our business activities.</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="journal-card">
+                <video controls preload="metadata">
+                    <source src="assets/journal-video-2.mp4" type="video/mp4">
+                </video>
+                <div class="journal-card-content">
+                    <h3>Production Documentary</h3>
+                    <p>Our production and quality activities.</p>
+                </div>
+            </div>
+
+
+            
+<!-- Video 3 -->
+<div class="journal-card">
+    <video controls preload="metadata">
+        <source src="assets/business-activities.mp4" type="video/mp4">
+    </video>
+    <div class="journal-card-content">
+        <h3>Business Activities & Documentation</h3>
+        <p>A glimpse of nighttime activities at PT Sakti Coco Utama.</p>
+    </div>
+</div>
+
+<!-- Video 4 - Charcoal Unloading -->
+<div class="journal-card">
+    <video controls preload="metadata">
+        <source src="assets/charcoal-unloading.mp4" type="video/mp4">
+    </video>
+    <div class="journal-card-content">
+        <h3>Coconut Shell Charcoal Unloading</h3>
+        <p>our activities at the local market.</p>
+    </div>
+</div>
+
+<!-- Video 6 - Charcoal Processing -->
+<div class="journal-card">
+    <video controls preload="metadata">
+        <source src="assets/journal-video-6.mp4" type="video/mp4">
+    </video>
+    <div class="journal-card-content">
+        <h3>quality control</h3>
+        <p>Every buyer has their own quality standards, and we consistently carry out routine quality control to ensure that the trust placed in us by our buyers is not lost due to any negligence.</p>
+    </div>
+</div>
+
+
+
+
+
+        </div>
+
+        <div class="journal-controls">
+            <button type="button" onclick="scrollJournal(-1)" aria-label="Previous">
+                &#10094;
+            </button>
+
+            <button type="button" onclick="scrollJournal(1)" aria-label="Next">
+                &#10095;
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
 
 
   <!-- FAQ -->
@@ -476,6 +1162,112 @@
         item.classList.toggle('active');
       });
     });
+
+    // Business Journal Navigation
+
+function scrollJournal(direction) {
+    const journal = document.getElementById('journalTrack');
+
+    const card = journal.querySelector('.journal-card');
+
+    if (!card) return;
+
+    const cardWidth = card.offsetWidth + 22;
+
+    journal.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+    });  
+}
+
+
+
+/* Infinite Product Carousel */
+
+const productTrack = document.getElementById('productTrack');
+
+if (productTrack) {
+    const originalProducts = Array.from(productTrack.children);
+    const cloneCount = originalProducts.length;
+
+    // Gandakan produk terakhir ke bagian depan
+    const beforeClones = document.createDocumentFragment();
+
+    originalProducts.slice(-cloneCount).forEach(product => {
+        beforeClones.appendChild(product.cloneNode(true));
+    });
+
+    productTrack.insertBefore(beforeClones, productTrack.firstChild);
+
+    // Gandakan produk pertama ke bagian belakang
+    const afterClones = document.createDocumentFragment();
+
+    originalProducts.slice(0, cloneCount).forEach(product => {
+        afterClones.appendChild(product.cloneNode(true));
+    });
+
+    productTrack.appendChild(afterClones);
+
+    let originalStart = 0;
+    let originalSetWidth = 0;
+    let resetting = false;
+
+    function setupProductCarousel() {
+        const firstOriginal = productTrack.children[cloneCount];
+        const gap = parseFloat(getComputedStyle(productTrack).gap) || 0;
+
+        originalStart =
+            firstOriginal.getBoundingClientRect().left -
+            productTrack.getBoundingClientRect().left +
+            productTrack.scrollLeft;
+
+        originalSetWidth =
+            originalProducts.reduce(
+                (total, product) => total + product.offsetWidth,
+                0
+            ) + gap * cloneCount;
+
+        productTrack.scrollLeft = originalStart;
+    }
+
+    setupProductCarousel();
+
+    window.addEventListener('resize', setupProductCarousel);
+
+    productTrack.addEventListener('scroll', () => {
+        if (resetting) return;
+
+        const maxScroll =
+            productTrack.scrollWidth - productTrack.clientWidth;
+
+        if (productTrack.scrollLeft <= 1) {
+            resetting = true;
+            productTrack.scrollLeft = originalStart + originalSetWidth;
+            resetting = false;
+        } else if (productTrack.scrollLeft >= maxScroll - 1) {
+            resetting = true;
+            productTrack.scrollLeft = originalStart;
+            resetting = false;
+        }
+    });
+}
+
+function moveProduct(direction) {
+    const track = document.getElementById('productTrack');
+    const card = track?.querySelector('.product');
+
+    if (!track || !card) return;
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+
+    track.scrollBy({
+        left: direction * (card.offsetWidth + gap),
+        behavior: 'smooth'
+    });
+}
+
+
+
   </script>
 </body>
 </html>
