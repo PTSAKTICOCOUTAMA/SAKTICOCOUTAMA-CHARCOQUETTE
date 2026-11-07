@@ -69,7 +69,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
+    z-index: -1;
 }
 
 .about-overlay {
@@ -260,9 +260,21 @@ section {
 
 /* Tentang Kami dengan background yang jelas */
 
- 
-.about { position: relative; background: url('assets/about-bg.jpg') center/cover no-repeat; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; border-radius: 0px; overflow: hidden; }
-    .about-overlay { background: rgba(0,0,0,0.5); padding: 50px 30px; border-radius: 15px; max-width: 800px; }
+.about {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border-radius: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: #123524;
+}
+
+   .about-overlay { background: rgba(0,0,0,0.5); padding: 50px 30px; border-radius: 15px; max-width: 800px; }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -874,7 +886,7 @@ padding-bottom: 100px;
 
         <div class="product">
             <img src="assets/kopra-asap.jpg" alt="Kopra Asap" loading="lazy">
-            <h3>smoked copra</h3>
+            <h3>Kopra Asap</h3>
            </div>
 
         <div class="product">
@@ -993,8 +1005,8 @@ padding-bottom: 100px;
     <img src="assets/journal-5.jpg"
          alt="Coconut Shell Charcoal Production">
     <div class="journal-card-content">
-        <h3>from waste into something of value</h3>
-        <p>With proper processing, waste can become valuable.</p>
+        <h3>dari limbah menjadi sesuatu yang bernilai</h3>
+        <p>Dengan pengolahan yang tepat, limbah bisa menjadi bernilai.</p>
     </div>
 </div>
 
@@ -1027,8 +1039,8 @@ padding-bottom: 100px;
                     <source src="assets/journal-video-1.mp4" type="video/mp4">
                 </video>
                 <div class="journal-card-content">
-                    <h3>one of our warehouses</h3>
-                    <p>We will always strive to provide more to every buyer.</p>
+                    <h3>Business Documentation</h3>
+                    <p>Moments from our business activities.</p>
                 </div>
             </div>
 
