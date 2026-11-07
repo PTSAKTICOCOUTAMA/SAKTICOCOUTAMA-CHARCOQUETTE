@@ -1285,34 +1285,6 @@ function moveProduct(direction) {
     });
 }
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const backgroundVideos = document.querySelectorAll(
-        ".about-video, .products-video, .services-video, .journal-background-video"
-    );
-
-    const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const video = entry.target;
-
-            if (entry.isIntersecting) {
-                video.play().catch(() => {});
-            } else {
-                video.pause();
-            }
-        });
-    }, {
-        rootMargin: "200px 0px",
-        threshold: 0
-    });
-
-    backgroundVideos.forEach((video) => {
-        videoObserver.observe(video);
-    });
-});
-</script>
-
-
   </script>
 </body>
 </html>
