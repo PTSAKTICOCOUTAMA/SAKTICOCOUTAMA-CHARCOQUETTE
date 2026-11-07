@@ -62,25 +62,26 @@
 
 
 
-    /* About Background Video */
-
-.about {
+    /* Products Background Video */
+.products {
     position: relative;
     overflow: hidden;
-    background: none;
     isolation: isolate;
+    background: transparent;
 }
 
-.about-video {
+.products-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    pointer-events: none;
 }
 
-.about-overlay {
+.products h2,
+.products .product-carousel {
     position: relative;
     z-index: 1;
 }
