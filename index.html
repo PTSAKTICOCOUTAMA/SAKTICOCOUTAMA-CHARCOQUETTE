@@ -29,8 +29,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   
-
-  
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; line-height: 1.6; scroll-behavior: smooth; }
     h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; }
@@ -807,99 +805,12 @@ padding-bottom: 100px;
     }
 }
 
-.whatsapp-float {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-    width: 58px;
-    height: 58px;
-    background: #25D366;
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.whatsapp-float svg {
-    width: 60px;
-    height: 60px;
-}
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
 
-@media (max-width: 768px) {
-    .whatsapp-float {
-        right: 18px;
-        bottom: 18px;
-        width: 80px;
-        height: 80px;
-    }
-}
 
-/* WhatsApp Premium Animation */
-.whatsapp-float {
-    animation: whatsappFloat 3s ease-in-out infinite;
-}
 
-.whatsapp-float::before {
-    content: "";
-    position: absolute;
-    inset: -5px;
-    border: 2px solid rgba(37, 211, 102, 0.65);
-    border-radius: 50%;
-    animation: whatsappGlow 2.5s ease-out infinite;
-    pointer-events: none;
-}
 
-.whatsapp-float svg {
-    position: relative;
-    z-index: 1;
-    animation: whatsappIcon 3s ease-in-out infinite;
-}
-
-@keyframes whatsappFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-7px);
-    }
-}
-
-@keyframes whatsappGlow {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1.45);
-        opacity: 0;
-    }
-}
-
-@keyframes whatsappIcon {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(-8deg);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .whatsapp-float,
-    .whatsapp-float::before,
-    .whatsapp-float svg {
-        animation: none;
-    }
-}
 
   </style>
 </head>
@@ -1372,22 +1283,6 @@ function moveProduct(direction) {
     });
 }
 
-
-
   </script>
-
-<!-- WhatsApp Floating Button -->
-<a
-  href="https://wa.me/6281264457685?text=Hello%2C%20I%27m%20interested%20in%20your%20products%20and%20would%20like%20to%20know%20more%20about%20your%20offerings."
-  class="whatsapp-float"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Chat with us on WhatsApp"
->
-  <svg viewBox="0 0 32 32" aria-hidden="true">
-    <path fill="currentColor" d="M16 .5A15.4 15.4 0 0 0 2.7 23.7L.5 31.5l8-2.1A15.5 15.5 0 1 0 16 .5Zm0 28.2a12.7 12.7 0 0 1-6.5-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5A12.7 12.7 0 1 1 16 28.7Zm7-9.5c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.3.4-1 1.2-1.2 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2 0-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.6.8.3 1.5.2 2 .1.6-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5Z"/>
-  </svg>
-</a>
-
 </body>
 </html>
